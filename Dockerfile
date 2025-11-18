@@ -12,6 +12,7 @@ RUN wget https://sourceforge.net/projects/mantisbt/files/mantis-stable/2.26.2/ma
     && rm mantisbt.zip \
     && chown -R www-data:www-data /var/www/html
 
+# ⬇️ NUEVO: copiar config_inc.php dentro del contenedor
 COPY config/config_inc.php /var/www/html/config/config_inc.php
 
 EXPOSE 80
