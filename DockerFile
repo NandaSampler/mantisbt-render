@@ -1,4 +1,3 @@
-#dockerfile
 FROM php:8.1-apache
 
 RUN apt-get update && apt-get install -y \
@@ -12,5 +11,7 @@ RUN wget https://sourceforge.net/projects/mantisbt/files/mantis-stable/2.26.2/ma
     && mv mantisbt-2.26.2/* ./ \
     && rm mantisbt.zip \
     && chown -R www-data:www-data /var/www/html
+
+COPY config/config_inc.php /var/www/html/config/config_inc.php
 
 EXPOSE 80
