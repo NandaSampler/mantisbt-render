@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: mantisbt-web
+    env: docker
+    plan: free
+    numInstances: 1
+    envVars:
+      - key: DB_TYPE
+        value: pgsql
+      - key: DB_HOST
+        fromDatabase: mantisbt-db
+        property: host
+      - key: DB_NAME
+        fromDatabase: mantisbt-db
+        property: database
+      - key: DB_USER
+        fromDatabase: mantisbt-db
+        property: user
+      - key: DB_PASS
+        fromDatabase: mantisbt-db
+        property: password
+      - key: DB_PORT
+        fromDatabase: mantisbt-db
+        property: port
